@@ -19,6 +19,7 @@ This is a little different from the original, with defaults tweaked to my prefer
   - The `project/proguard.cfg` file includes my current idea of an approprate set of defaults,
     in the optimality of which at this time of writing I have rather little confidence.
 - By default the `sbt` plugin `ensime-sbt-cmd` is activated (version 0.1.0)
+- Use Bee Client: http://www.bigbeeconsultants.co.uk/bee-client
 
 # Android App in Scala
 
