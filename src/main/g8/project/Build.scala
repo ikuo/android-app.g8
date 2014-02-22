@@ -27,7 +27,7 @@ object AndroidBuild extends Build {
     javacOptions ++= Seq("-encoding", "UTF-8", "-source", "1.6", "-target", "1.6"),
     javaOptions in Compile += "-Dscalac.patmat.analysisBudget=off",
     initialize ~= { _ ⇒
-      sys.props("scalac.patmat.analysisBudget") = "512"
+      sys.props("scalac.patmat.analysisBudget") = "4096"
     }
   )
 
