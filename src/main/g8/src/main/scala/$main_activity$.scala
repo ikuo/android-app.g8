@@ -24,8 +24,7 @@ class $main_activity$ extends Activity with TypedActivity { activity =>
     // Set dev_id and md5password from ~/work/garapon4s/garapon4s.properties
     val client = new com.github.ikuo.garapon4s.TvClient("@@dev_id@@")
     val session =
-      client.newSessionByIp(
-        "192.168.1.11",
+      client.newSession(
         "matzun",
         "@@md5password@@"
       )
