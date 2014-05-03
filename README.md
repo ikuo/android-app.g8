@@ -1,8 +1,11 @@
+A giter8 template of Android app that use [Garapon4S](https://github.com/ikuo/garapon4s).
+
+[Documentation for mackler's original (from which this is forked) is here.](https://github.com/mackler/android-app.g8/blob/master/README.md)
 [Documentation for jberkel's original (from which this is forked) is here.](https://github.com/jberkel/android-app.g8/blob/master/README.md)
 
 [A tutorial for the sbt-android plugin is here.](http://fxthomas.github.io/android-plugin/)
 
-This is a little different from the original, with defaults tweaked to my preferences.  Differences include, but are not limited to:
+This is a little different from the originals, with defaults tweaked to my preferences.  Differences include, but are not limited to:
 
 - Uses sbt-android plugin version 0.7
 - Default scala version 2.10.3

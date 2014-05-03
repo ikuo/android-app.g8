@@ -2,12 +2,18 @@ package $package$
 
 import _root_.android.app.Activity
 import _root_.android.os.Bundle
+import android.content.Intent
+import android.net.Uri
 
 class $main_activity$ extends Activity with TypedActivity { activity =>
+  // Set your dev_id, user_name, and md5password
+  private lazy val client = new com.github.ikuo.garapon4s.TvClient("my_dev_id")
+  private lazy val session =
+    client.newSession("my_user_name", "my_md5password")
+
   override def onCreate(bundle: Bundle) {
     super.onCreate(bundle)
     setContentView(R.layout.main)
-
     findView(TR.textview).setText("Loading ...")
     thread.start
   }
@@ -15,27 +21,22 @@ class $main_activity$ extends Activity with TypedActivity { activity =>
   private val thread: Thread = new Thread(
     new Runnable {
       override def run {
-        activity.updateText(testMessage)
+        activity.openUrl(sampleUrlOfWebViewer)
       }
     }
   )
 
-  private lazy val testMessage = {
-    // Set dev_id and md5password from ~/work/garapon4s/garapon4s.properties
-    val client = new com.github.ikuo.garapon4s.TvClient("@@dev_id@@")
-    val session =
-      client.newSession(
-        "matzun",
-        "@@md5password@@"
-      )
-    session.gtvsession
+  private lazy val sampleUrlOfWebViewer = {
+    val results = session.search(key = "News")
+    val program = results.programs(0)
+    session.webViewerUrl(program.gtvId)
   }
 
-  private def updateText(text: String) {
+  private def openUrl(url: String) =
     runOnUiThread(new Runnable {
       override def run {
-        findView(TR.textview).setText(text)
+        findView(TR.textview).setText(url)
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)))
       }
     })
-  }
 }
