@@ -1,4 +1,3 @@
-/target
-/project/target
+target/
 /device-*.png
 .DS_store
